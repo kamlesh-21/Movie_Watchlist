@@ -1,7 +1,85 @@
-html, body{
+html, body {
     margin: 0;
     padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body{
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h3{
+    margin: 0px;
+    padding-top: 40px;
 }
 h1{
+    font-size: 42px;
     color: red;
+}
+
+h3 {
+    margin-top: 15px;
+    font-size: 22px;
+    color: white;
+}
+
+.hero{
+    display: flex;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 20px;
+    font-family: inherit;
+    font-weight: 800;
+}
+header{
+    background-image: url("/images/bg.png");
+    background-size: contain;
+    background-repeat: none;
+    width: 100vw;
+    height: 208px;
+    background-color: #0E0E0E;  
+}
+
+#movie-search{
+    display: flex;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: -25px;
+    margin-bottom: -25px;
+}
+
+input[type="search"] {
+    line-height: 40px;
+    width: 100%;
+    border: 1px solid #dfe1e5;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+    border: 2px solid white;
+    background-color: white;
+    padding-left: 18px;
+}
+
+input[type="submit"]{
+    width: 20%;
+    border: 1px solid #D1D5DB;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+    justify-content: center;
+    background-color: #F9FAFB;
+    padding: auto;
+  
+}
+
+input[type="submit"], input[type="search"] {
+    font-weight: 600;
+    font-size: 16px;
+    font-family: inherit;
 }

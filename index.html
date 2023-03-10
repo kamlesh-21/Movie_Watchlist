@@ -4,23 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="index.css" rel="stylesheet">
     <title>Movie Watchlist</title>
 </head>
 <body>
-    <h1>index.html</h1>
-        <header>
-            <div class="header-image">
-                
-            </div>
-            <form id="movie-search">
-                <input type="search" id="search" placeholder="Search for a movie">
-                <input type="submit" value="Search">
-            </form>
-        <header>
-        <main>
-            <div class="results" id="results">
-        </main>
-        <script src="index.js"></script>
+    <header>
+        <div class="hero">
+            <h1>Find your film</h1>
+            <h3>My watchlist</h3>
+        </div>
+    </header>
+    <section>
+        <form id="movie-search">
+            <input class="search-box" type="search" id="search" placeholder="Search for a movie">
+            <input type="submit" value="Search">
+        </form>
+    </section>
+    <main>
+        <div class="results" id="results">
+    </main>
+    <script src="index.js"></script>
 </body>
 </html>
