@@ -15,12 +15,12 @@ h1, h3{
     padding-top: 40px;
 }
 h1{
-    font-size: 42px;
+    font-size: 2.6rem;
     color: red;
 }
 
-h3 {
-    margin-top: 15px;
+a {
+    margin-top: 45px;
     font-size: 22px;
     color: white;
 }
@@ -80,6 +80,42 @@ input[type="submit"]{
 
 input[type="submit"], input[type="search"] {
     font-weight: 600;
-    font-size: 16px;
     font-family: inherit;
+}
+main{
+    justify-content: center;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+img{
+    height: 220px;
+    padding: 25px;
+    margin-top: 30px;
+}
+.info{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.heading{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px 20px;
+}
+
+.mid-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px 20px;
+}
+.plot{
+    padding: 25px 20px;
+}
+
+.add{
+    cursor: pointer;
 }
