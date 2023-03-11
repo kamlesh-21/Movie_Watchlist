@@ -1,8 +1,16 @@
-const watchlistEl = document.getElementById("watchlist");
+let watchlistArray = JSON.parse(localStorage.getItem("watchlistKey")) || [];
+
+function removeMovie(id) {
+    const newWatchlist = JSON.parse(localStorage.getItem("watchlistKey"));
+    watchlist = newWatchlist.filter(iter => iter.Id !== id);
+    localStorage.setItem("watchlistKey", JSON.stringify(watchlist));
+    renderWatchlist();
+}
 
 function renderWatchlist(){
     let html = ''
     const newWatchlist = JSON.parse(localStorage.getItem("watchlistKey"));
+    if(newWatchlist){
     for (let movie of newWatchlist){
         html += `
             <div class="info">
@@ -23,15 +31,10 @@ function renderWatchlist(){
                 </div>
             </div>
         `
-    }
+        }
+    }    
+    const watchlistEl = document.getElementById("watchlist");
     watchlistEl.innerHTML = html
-}
-
-function removeMovie(id) {
-    const newWatchlist = JSON.parse(localStorage.getItem("watchlistKey"));
-    watchlist = newWatchlist.filter(iter => iter.Id !== id);
-    localStorage.setItem("watchlistKey", JSON.stringify(watchlist));
-    renderWatchlist();
 }
 
 window.onload=()=>renderWatchlist();

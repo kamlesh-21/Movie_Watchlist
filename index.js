@@ -1,5 +1,5 @@
 let moviesArray = []
-let watchlistArray = []
+let watchlistArray = JSON.parse(localStorage.getItem("watchlistKey")) || []
 const movieSearch = document.getElementById("movie-search")
 const inputEl = document.getElementById("search")
 const resultsEl = document.getElementById("results")
@@ -40,55 +40,48 @@ function renderResult(i) {
                 <div class="mid-section">
                     <h3 class="runtime">${i.Runtime}</h3>
                     <h3 class="genre">${i.Genre}</h3>
-                    <h3 class="add" onclick="addToWatchlist('${i.Id}')">Add to Watchlist</h3>
+                    <h3 class="add" onclick="
+                    ${isInWatchlist(i.Id) ? 
+                        `removeFromWatchlist('${i.Id}')` :
+                        `addToWatchlist('${i.Id}')`
+                    }">
+                    ${isInWatchlist(i.Id) ? 
+                        `Remove from Watchlist` :
+                        (watchlistArray.some((movie) => movie.Id === i.Id) ?
+                        `Remove from Watchlist` :
+                        `Add to Watchlist`
+                        )
+                    }
+                    </h3>
                 </div>
                 <div class="plot">
                     ${i.Plot}
                 </div>
             </div>
         </div>
+        </hr>
     `   
 }
 
+function isInWatchlist(id) {
+  const watchlist = JSON.parse(localStorage.getItem("watchlistKey")) || [];
+  return watchlist.some((movie) => movie.Id === id);
+}
+
+
 function addToWatchlist(id) {
   const movie = moviesArray.find((movie) => movie.Id === id);
-  watchlistArray.push(movie);
+   if (watchlistArray.find((movie) => movie.Id === id)) {
+    alert("This movie is already in your watchlist!");
+  } else {
+    watchlistArray.push(movie);
+    localStorage.setItem("watchlistKey", JSON.stringify(watchlistArray));
+    alert("Added");
+  }
+}
+
+function removeFromWatchlist(id) {
+  watchlistArray = watchlistArray.filter((movie) => movie.Id !== id);
   localStorage.setItem("watchlistKey", JSON.stringify(watchlistArray));
-  renderWatchlist()
+  renderResult(moviesArray.find((movie) => movie.Id === id));
 }
-
-function removeMovie(id) {
-  watchlist = watchlistArray.filter(iter => iter.Id !== id);
-  localStorage.setItem("watchlistKey", JSON.stringify(watchlist));
-  renderWatchlist();
-}
-
-function renderWatchlist(){
-    let html = ''
-    const NewWatchlist = JSON.parse(localStorage.getItem("watchlistKey"));
-    for (let movie of NewWatchlist){
-        html += `
-            <div class="info">
-                <img class="poster" id="poster" src="${movie.Poster}">
-                <div class="main-body">
-                    <div class="heading">
-                        <h3 class="title">${movie.Title}</h3>
-                        <h3 class="rating">${movie.imdbRating}</h3>
-                    </div>
-                    <div class="mid-section">
-                        <h3 class="runtime">${movie.Runtime}</h3>
-                        <h3 class="genre">${movie.Genre}</h3>
-                        <h3 class="add" onclick="removeMovie('${movie.Id}')">Remove from Watchlist</h3>
-                    </div>
-                    <div class="plot">
-                        ${movie.Plot}
-                    </div>
-                </div>
-            </div>
-        `
-    }
-    watchlistEl.innerHTML = html
-}
-
-window.onload=()=>renderWatchlist();
-

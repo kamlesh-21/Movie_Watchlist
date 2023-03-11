@@ -82,14 +82,13 @@ input[type="submit"], input[type="search"] {
     font-weight: 600;
     font-family: inherit;
 }
-main{
-    justify-content: center;
-    max-width: 750px;
+#results, #watchlist{
     margin: 0 auto;
+    max-width: 750px;
 }
 
 img{
-    height: 220px;
+    height: 208px;
     padding: 25px;
     margin-top: 30px;
 }
@@ -103,7 +102,9 @@ img{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 20px;
     padding: 5px 20px;
+
 }
 
 .mid-section{
