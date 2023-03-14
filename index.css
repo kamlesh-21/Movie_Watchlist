@@ -5,7 +5,7 @@ html, body {
 }
 
 body{
-    background-color: yellow;
+    background-color: wheat;
     display: flex;
     flex-direction: column;
 }
@@ -83,19 +83,22 @@ input[type="submit"], input[type="search"] {
     font-family: inherit;
 }
 #results, #watchlist{
-    margin: 0 auto;
-    max-width: 750px;
+    margin: 20px auto;
+    max-width: 750px; 
 }
 
 img{
     height: 208px;
     padding: 25px;
-    margin-top: 30px;
+    margin-top: 15px;
 }
 .info{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    background-color: whitesmoke;
+    border-radius: 14px;
+    margin: 15px;
 }
 
 .heading{
